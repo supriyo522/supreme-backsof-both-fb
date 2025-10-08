@@ -1,19 +1,15 @@
-/*Notfound.jsx*/
 'use client';
 import Button from './Button';
-import styles from '../styles/NotFound.module.css';
 
 export default function NotFound() {
   return (
-    <div className={styles['not-found-container']}>
-      <div className={styles['not-found-content']}>
-        <h2 className={styles['not-found-title']}>404</h2>
-        <p className={styles['not-found-message']}>
-          The page you have requested doesn’t exist.
-        </p>
+    <div className="w-full h-screen flex items-center justify-center bg-gray-100 overflow-hidden">
+      <div className="flex flex-col items-center text-center space-y-6">
+        <h2 className="text-9xl text-red-500 m-0">404</h2>
+        <p className="text-lg text-gray-700">The page you have requested doesn’t exist.</p>
         <Button
           text="Go to Homepage"
-          className={styles['not-found-button']}
+          className="bg-blue-600 text-white hover:bg-blue-700"
           onClick={() => {
             window.location.href = '/';
           }}

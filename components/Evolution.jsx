@@ -1,8 +1,6 @@
-/*evolution.jsx*/
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import { PlayArrow, Pause } from '@mui/icons-material';
-import styles from '../styles/Evolution.module.css';
 
 const videoSources = {
   'Passenger vehicles': {
@@ -84,21 +82,21 @@ export default function Evolution() {
   }, [selectedCategory]);
 
   return (
-    <div className={styles['evolution-container']} ref={containerRef}>
-      <div className={styles['evolution-header']}>
-        <h2>
-          Evolving the drive with <span className={styles.highlight}>360‑degree</span>
+    <div className="w-full bg-black text-white flex flex-col items-center py-12 px-4 md:px-8" ref={containerRef}>
+      <div className="text-center mb-8">
+        <h2 className="text-3xl md:text-4xl">
+          Evolving the drive with <span className="font-bold">360‑degree</span>
           <br /> comprehensive solutions
         </h2>
       </div>
 
-      <div className={styles['evolution-main']}>
-        <div className={styles['evolution-categories']}>
+      <div className="flex flex-col md:flex-row w-full max-w-6xl">
+        <div className="md:w-1/3 flex flex-col space-y-4">
           {vehicleCategories.map((category) => (
             <div
               key={category.name}
-              className={`${styles['category-item']} ${
-                selectedCategory === category.name ? styles.selected : ''
+              className={`cursor-pointer p-4 transition-opacity ${
+                selectedCategory === category.name ? 'opacity-100 border-l-4 border-white' : 'opacity-40'
               }`}
               onClick={() => {
                 setSelectedCategory(category.name);
@@ -108,17 +106,17 @@ export default function Evolution() {
                 }
               }}
             >
-              <h3>{category.name}</h3>
-              <p className={styles['category-description']}>{category.description}</p>
+              <h3 className="text-xl">{category.name}</h3>
+              <p className="text-sm">{category.description}</p>
             </div>
           ))}
         </div>
 
-        <div className={styles['evolution-video']}>
+        <div className="md:w-2/3 flex justify-center items-center">
           <video
             ref={videoRef}
             src={videoSources[selectedCategory][selectedPart]}
-            className={styles['video-player']}
+            className="w-full h-auto"
             autoPlay
             muted
             loop
@@ -126,26 +124,35 @@ export default function Evolution() {
         </div>
       </div>
 
-      <div className={styles['evolution-parts']}>
-        <div className={styles['parts-selection']}>
+      <div className="w-full mt-8 flex justify-center items-center relative">
+        <div className="flex space-x-8">
           {vehicleParts
             .find((p) => p.name === selectedCategory)
             ?.categories.map((item) => (
               <div
                 key={item.label}
-                className={`${styles['part-icon']} ${
-                  selectedPart === item.label ? styles.selected : ''
+                className={`flex flex-col items-center cursor-pointer transition-opacity ${
+                  selectedPart === item.label ? 'opacity-100' : 'opacity-50'
                 }`}
                 onClick={() => setSelectedPart(item.label)}
               >
-                <img src={item.icon} alt={item.label} className={styles['part-image']} />
-                <p>{item.label}</p>
+                <img
+                  src={item.icon}
+                  alt={item.label}
+                  className={`w-16 h-auto transition-filter ${
+                    selectedPart === item.label ? 'filter brightness-200' : 'filter brightness-70'
+                  }`}
+                />
+                <p className="mt-2 text-sm">{item.label}</p>
               </div>
             ))}
         </div>
 
-        <button className={styles['play-pause-btn']} onClick={togglePlayPause}>
-          {isPlaying ? <Pause sx={{ width: 24, height: 24 }} /> : <PlayArrow sx={{ width: 24, height: 24 }} />}
+        <button
+          className="absolute right-8 bg-transparent border-2 border-white rounded-full p-3 flex items-center justify-center"
+          onClick={togglePlayPause}
+        >
+          {isPlaying ? <Pause className="w-6 h-6" /> : <PlayArrow className="w-6 h-6" />}
         </button>
       </div>
     </div>

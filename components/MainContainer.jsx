@@ -1,23 +1,25 @@
-/*Maincontainer.jsx*/
 'use client';
-import styles from '../styles/MainContainer.module.css';
 
 export default function MainContainer() {
   return (
-    <div className={styles['main-container']} id="maindiv">
-      <video autoPlay loop muted playsInline className={styles['video-background']}>
+    <div className="relative w-full h-screen overflow-hidden bg-black">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      >
         <source src="/assets/automotive.224e7418884105595114.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      <div className={styles.content}>
-        <p className={styles['performance-text']}>Driven by performance</p>
-        <p className={styles['solution-text']}>
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+        <p className="text-xl md:text-2xl lg:text-3xl font-light mb-2">Driven by performance</p>
+        <p className="text-2xl md:text-3xl lg:text-4xl font-thin">
           <span>
-            Soft trims and <span className={styles.highlight}>NVH solutions</span>
+            Soft trims and <span className="text-blue-400 font-semibold">NVH solutions</span>
           </span>
-          <br />
-          for seamless rides
         </p>
       </div>
     </div>

@@ -1,8 +1,6 @@
-/*getTouch.jsx*/
 'use client';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import styles from '../styles/GetInTouch.module.css';
 
 export default function GetInTouch() {
   const [formData, setFormData] = useState({
@@ -64,64 +62,72 @@ export default function GetInTouch() {
   };
 
   return (
-    <div className={styles['get-in-touch-container']} id="contact-us">
-      <div className={styles['get-in-touch-wrapper']}>
-        <div className={styles['get-in-touch-left']}>
-          <h2 className={styles['get-in-touch-title']}>Get In Touch</h2>
-          <div className={styles['get-in-touch-bar']}></div>
+    <div className="w-full py-12 px-6 bg-blue-800 text-white">
+      <div className="max-w-4xl mx-auto flex flex-col lg:flex-row gap-10">
+        <div className="flex-1">
+          <h2 className="text-3xl font-semibold">Get In Touch</h2>
+          <div className="w-12 h-1 bg-white my-4"></div>
           <p>For general inquiries</p>
           <p>Address: 110, 16th Road, Chembur, Mumbai - 400071</p>
-          <p>
-            Phone: <a href="tel:+912225208822">+91 22 25208822</a>
-          </p>
-          <p>
-            Email: <a href="mailto:info@supremegroup.co.in">info@supremegroup.co.in</a>
-          </p>
+          <p>Phone: <a href="tel:+912225208822" className="underline">+91 22 25208822</a></p>
+          <p>Email: <a href="mailto:info@supremegroup.co.in" className="underline">info@supremegroup.co.in</a></p>
         </div>
 
-        <div className={styles['form-wrapper']}>
-          <form onSubmit={submitForm} className={styles['get-in-touch-form']}>
-            <input
-              type="text"
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              placeholder="Full Name"
-              className={styles['get-in-touch-input']}
-            />
-            {isFormValid.fullName && <span className={styles['get-in-touch-error']}>Please enter Full Name</span>}
+        <div className="flex-1">
+          <form onSubmit={submitForm} className="space-y-4">
+            <div>
+              <input
+                type="text"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                placeholder="Full Name"
+                className="w-full bg-transparent border-b border-gray-300 focus:border-white outline-none py-2 placeholder-gray-200"
+              />
+              {isFormValid.fullName && <p className="text-red-400 text-sm">Please enter Full Name</p>}
+            </div>
 
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email"
-              className={styles['get-in-touch-input']}
-            />
-            {isFormValid.email && <span className={styles['get-in-touch-error']}>Please enter a valid email</span>}
+            <div>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email"
+                className="w-full bg-transparent border-b border-gray-300 focus:border-white outline-none py-2 placeholder-gray-200"
+              />
+              {isFormValid.email && <p className="text-red-400 text-sm">Please enter a valid email</p>}
+            </div>
 
-            <input
-              type="text"
-              name="company"
-              value={formData.company}
-              onChange={handleChange}
-              placeholder="Company"
-              className={styles['get-in-touch-input']}
-            />
-            {isFormValid.company && <span className={styles['get-in-touch-error']}>Please enter Company name</span>}
+            <div>
+              <input
+                type="text"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                placeholder="Company"
+                className="w-full bg-transparent border-b border-gray-300 focus:border-white outline-none py-2 placeholder-gray-200"
+              />
+              {isFormValid.company && <p className="text-red-400 text-sm">Please enter Company name</p>}
+            </div>
 
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Message"
-              rows="4"
-              className={styles['get-in-touch-textarea']}
-            ></textarea>
-            {isFormValid.message && <span className={styles['get-in-touch-error']}>Please enter a message</span>}
+            <div>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Message"
+                rows="4"
+                className="w-full bg-transparent border-b border-gray-300 focus:border-white outline-none py-2 placeholder-gray-200"
+              />
+              {isFormValid.message && <p className="text-red-400 text-sm">Please enter a message</p>}
+            </div>
 
-            <button type="submit" className={styles['get-in-touch-button']}>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="px-6 py-2 bg-white text-black font-semibold rounded-full hover:bg-gray-100 transition disabled:opacity-50"
+            >
               {isSubmitting ? 'Sending...' : 'Send'}
             </button>
           </form>
