@@ -1,0 +1,49 @@
+/*Navbar.module.css*/
+.navbar {
+  width: 100%;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
+
+.visible {
+  transform: translateY(0);
+}
+
+.navbar-container {
+  margin: 10px 24px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  cursor: pointer;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.translate-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lang-text {
+  font-size: 12px;
+  font-weight: bold;
+}

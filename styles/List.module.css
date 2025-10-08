@@ -1,0 +1,33 @@
+/*List.module.css*/
+.list-category {
+  margin-bottom: 24px;
+}
+
+.category-title {
+  font-weight: bold;
+  color: black;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.link-list {
+  margin-top: 10px;
+  padding-left: 20px;
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+.link-item {
+  color: #6b6b6b;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.link-item:hover {
+  color: #4a4a4a;
+}
+
+.link-item + .link-item {
+  margin-top: 8px;
+}

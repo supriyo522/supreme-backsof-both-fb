@@ -1,0 +1,88 @@
+/*getInTouch.module.css*/
+.get-in-touch-container {
+  width: 100%;
+  padding: 3rem 1.5rem;
+  background-color: rgb(0, 106, 188);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.get-in-touch-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .get-in-touch-wrapper {
+    flex-direction: row;
+    padding: 8rem 13rem;
+  }
+}
+
+.get-in-touch-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.get-in-touch-title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  .get-in-touch-title {
+    font-size: 2.5rem;
+  }
+}
+
+.get-in-touch-bar {
+  width: 3rem;
+  height: 0.25rem;
+  background-color: white;
+}
+
+.get-in-touch-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.get-in-touch-input,
+.get-in-touch-textarea {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.get-in-touch-input:focus,
+.get-in-touch-textarea:focus {
+  border-bottom: 1px solid white;
+}
+
+.get-in-touch-error {
+  color: #f87171;
+  font-size: 0.875rem;
+}
+
+.get-in-touch-button {
+  padding: 0.75rem 1.5rem;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: background 0.3s ease;
+  border: none;
+}
+
+.get-in-touch-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
